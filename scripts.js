@@ -10,9 +10,6 @@ if (!window.PaymentRequest) {
 }
 
 function makePayment() {
-    //Initalise payment request object
-    var paymentRequest = new PaymentRequest(methodData, details, options);
-
     //Get methods of payment
     var methodData = [{
         supportedMethods : ['basic-card'],
@@ -39,6 +36,9 @@ function makePayment() {
         requestPayerName: true,
         requestPayerEmail: true   
     }
+
+    //Initalise payment request object
+    var paymentRequest = new PaymentRequest(methodData, details, options);
 
     paymentRequest.show().then(function(paymentResponse) { 
     //Get the payment details
